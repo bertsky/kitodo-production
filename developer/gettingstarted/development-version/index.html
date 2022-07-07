@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Build development version - Kitodo.Production</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Kitodo.Production</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Getting started</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../" class="dropdown-item">Building</a>
+</li>
+            
+<li>
+    <a href="../demo/" class="dropdown-item">Build integrated demo</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Build development version</a>
+</li>
+            
+<li>
+    <a href="../eclipse-windows/" class="dropdown-item">Eclipse on Windows</a>
+</li>
+            
+<li>
+    <a href="../virtualbox/" class="dropdown-item">Create VirtualBox Appliance</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../guidelines/" class="dropdown-item">Guidelines</a>
+</li>
+                                    
+<li>
+    <a href="../../architecture/" class="dropdown-item">System architecture</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Workflow</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../architecture/workflow/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Modeler/" class="dropdown-item">Modeler</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Diagram_template_processing/" class="dropdown-item">Diagram template processing</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Template_process_creation/" class="dropdown-item">Create process out of template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">API documentation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../api/" class="dropdown-item">Application Programming Interface (API)</a>
+</li>
+            
+<li>
+    <a href="../../api/activemq_jms_api/" class="dropdown-item">Active MQ webservices</a>
+</li>
+            
+<li>
+    <a href="../../api/jersey_jaxrs_api/" class="dropdown-item">Jersey WebAPI</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../tests/" class="dropdown-item">Tests</a>
+</li>
+                                    
+<li>
+    <a href="../../javadoc/" class="dropdown-item">Javadoc</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">BestPractice</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user/introduction/" class="dropdown-item">Das erste mal mit Kitodo arbeiten</a>
+</li>
+            
+<li>
+    <a href="../../../user/introduction/application_notes/" class="dropdown-item">Anwendungshinweise und Weiteres</a>
+</li>
+            
+<li>
+    <a href="../../../user/introduction/user_documentation/" class="dropdown-item">Dokumentationen der Anwenderbibliotheken</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../user/introduction/gettingstarteduser/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Using</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user/introduction/using/" class="dropdown-item">Anwenderdokumentation</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../demo/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../eclipse-windows/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/kitodo/kitodo-production/edit/master/docs/developer/gettingstarted/development-version.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#build-development-version-of-kitodo-3x" class="nav-link">Build development version of Kitodo 3.x</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-system-environment" class="nav-link">1. System environment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-build-files-for-deployment" class="nav-link">2. Build files for deployment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-deployment" class="nav-link">3. Deployment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-updates" class="nav-link">4. Updates</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="build-development-version-of-kitodo-3x">Build development version of Kitodo 3.x</h1>
+<h2 id="1-system-environment">1. System environment</h2>
+<p>Download and install <a href="https://cdimage.debian.org/debian-cd/9.4.0/amd64/iso-cd/">Debian 9.4</a>.</p>
+<h3 id="install-sudo-and-reboot">Install sudo and reboot</h3>
+<pre><code>su -c &quot;apt install -y sudo &amp;&amp; adduser $USER sudo &amp;&amp; echo \&quot;Defaults timestamp_timeout=300\&quot; &gt;&gt; /etc/sudoers.d/timeout &amp;&amp; reboot&quot;
+</code></pre>
+<h2 id="2-build-files-for-deployment">2. Build files for deployment</h2>
+<h3 id="add-mysqlcom-57-repository">Add mysql.com 5.7 repository</h3>
+<pre><code>sudo apt install -y dirmngr
+</code></pre>
+<pre><code>sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5 &amp;&amp; echo &quot;deb http://repo.mysql.com/apt/debian/ stretch mysql-5.7&quot; | sudo tee -a /etc/apt/sources.list.d/mysql-5.7.list
+</code></pre>
+<h3 id="install-openjdk-11">Install openjdk-11</h3>
+<pre><code>echo 'deb http://ftp.debian.org/debian stretch-backports main' | sudo tee /etc/apt/sources.list.d/stretch-backports.list
+sudo apt update &amp;&amp; sudo apt install -y openjdk-11-jdk
+</code></pre>
+<h3 id="install-packages-maven-mysql-community-server-and-zip">Install packages maven, mysql-community-server and zip</h3>
+<pre><code>sudo debconf-set-selections &lt;&lt;&lt; &quot;mysql-community-server mysql-community-server/root-pass password &quot;
+sudo debconf-set-selections &lt;&lt;&lt; &quot;mysql-community-server mysql-community-server/re-root-pass password &quot;
+sudo apt update &amp;&amp; sudo apt install -y maven mysql-community-server zip
+</code></pre>
+<h3 id="change-java-security-config-for-cloud-environments">Change java security config (for cloud environments)</h3>
+<pre><code>sudo sed -i 's/securerandom.source=file:\/dev\/random/securerandom.source=file:\/dev\/urandom/' /etc/java-11-openjdk/security/java.security
+</code></pre>
+<h3 id="build-development-version-and-modules">Build development version and modules</h3>
+<pre><code>wget https://github.com/kitodo/kitodo-production/archive/master.zip
+unzip master.zip &amp;&amp; rm master.zip
+(cd kitodo-production-master/ &amp;&amp; mvn clean package '-P!development')
+zip -j kitodo-3-modules.zip kitodo-production-master/Kitodo/modules/*.jar
+mv kitodo-production-master/Kitodo/target/kitodo-3*.war kitodo-3.war
+</code></pre>
+<p>Note: If you want to build a release version, you may want to set the version in pom.xml files before packaging</p>
+<h3 id="create-mysql-database-and-user">Create MySQL database and user</h3>
+<pre><code>sudo mysql -e &quot;create database kitodo;grant all privileges on kitodo.* to kitodo@localhost identified by 'kitodo';flush privileges;&quot;
+</code></pre>
+<h3 id="generate-sql-dump-flyway-migration">Generate SQL dump (flyway migration)</h3>
+<pre><code>cat kitodo-production-master/Kitodo/setup/schema.sql | mysql -u kitodo -D kitodo --password=kitodo
+cat kitodo-production-master/Kitodo/setup/default.sql | mysql -u kitodo -D kitodo --password=kitodo
+(cd kitodo-production-master/Kitodo-DataManagement &amp;&amp; mvn flyway:baseline -Pflyway &amp;&amp; mvn flyway:migrate -Pflyway)
+mysqldump -u kitodo --password=kitodo kitodo &gt; kitodo-3.sql
+</code></pre>
+<h3 id="create-zip-archive-with-directories-and-config-files">Create zip archive with directories and config files</h3>
+<pre><code>mkdir zip zip/config zip/debug zip/import zip/logs zip/messages zip/metadata zip/plugins zip/plugins/command zip/plugins/import zip/plugins/opac zip/plugins/step zip/plugins/validation zip/rulesets zip/scripts zip/swap zip/temp zip/users zip/xslt zip/diagrams
+install -m 444 kitodo-production-master/Kitodo/src/main/resources/kitodo_*.xml zip/config/
+install -m 444 kitodo-production-master/Kitodo/src/main/resources/docket*.xsl zip/xslt/
+install -m 444 kitodo-production-master/Kitodo/rulesets/*.xml zip/rulesets/
+install -m 444 kitodo-production-master/Kitodo/diagrams/*.xml zip/diagrams/
+install -m 554 kitodo-production-master/Kitodo/scripts/*.sh zip/scripts/
+chmod -w zip/config zip/import zip/messages zip/plugins zip/plugins/command zip/plugins/import zip/plugins/opac zip/plugins/step zip/plugins/validation zip/rulesets zip/scripts zip/xslt
+(cd zip &amp;&amp; zip -r ../kitodo-3-config.zip *)
+</code></pre>
+<p>Note: Create <code>messages</code> directory only in the case when you want to add / edit your own translations. Only those translation files will be used, not the one from class path.</p>
+<h3 id="results">Results</h3>
+<ul>
+<li>war file: <code>kitodo-3.war</code></li>
+<li>modules: <code>kitodo-3-modules.zip</code></li>
+<li>sql dump: <code>kitodo-3.sql</code></li>
+<li>zip file: <code>kitodo-3-config.zip</code></li>
+</ul>
+<h2 id="3-deployment">3. Deployment</h2>
+<h3 id="add-elasticsearch-5x-repository">Add Elasticsearch 5.x repository</h3>
+<pre><code>sudo apt install -y apt-transport-https
+</code></pre>
+<pre><code>wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - &amp;&amp; echo &quot;deb https://artifacts.elastic.co/packages/5.x/apt stable main&quot; | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
+</code></pre>
+<h3 id="install-packages-tomcat8-elasticsearch-and-curl">Install packages tomcat8, elasticsearch and curl</h3>
+<pre><code>sudo apt update &amp;&amp; sudo apt install -y tomcat8 elasticsearch curl
+</code></pre>
+<h3 id="configure-tomcat">Configure Tomcat</h3>
+<pre><code>sudo sed -i 's/JAVA_OPTS=&quot;-Djava.awt.headless=true/JAVA_OPTS=&quot;-Djava.awt.headless=true -Xmx1920m/' /etc/default/tomcat8
+</code></pre>
+<h3 id="configure-mysql">Configure MySQL</h3>
+<pre><code>sudo sh -c &quot;echo '[mysqld] innodb_file_per_table' &gt;&gt; /etc/mysql/my.cnf&quot;
+sudo service mysql restart
+</code></pre>
+<h3 id="configure-elasticsearch">Configure ElasticSearch</h3>
+<pre><code>sudo sed -i 's/#path.data: \/path\/to\/data/path.data: \/var\/lib\/elasticsearch/' /etc/elasticsearch/elasticsearch.yml
+sudo sed -i 's/#path.logs: \/path\/to\/logs/path.logs: \/var\/log\/elasticsearch/' /etc/elasticsearch/elasticsearch.yml
+sudo sed -i 's/#cluster.name: my-application/cluster.name: kitodo/' /etc/elasticsearch/elasticsearch.yml
+sudo sed -i 's/#node.name: node-1/node.name: kitodo-1/' /etc/elasticsearch/elasticsearch.yml
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable elasticsearch.service
+sudo systemctl start elasticsearch.service
+</code></pre>
+<p>Other ElasticSearch settings can be adjusted in <em>kitodo_config.properties</em> file:</p>
+<pre><code>elasticsearch.host=localhost
+elasticsearch.port=9200
+elasticsearch.protocol=http
+elasticsearch.index=kitodo
+elasticsearch.batch=1000
+elasticsearch.useAuthentication=true
+elasticsearch.user=kitodo
+elasticsearch.password=kitodo
+</code></pre>
+<h3 id="create-directories-and-set-permissions">Create directories and set permissions</h3>
+<pre><code>sudo mkdir /usr/local/kitodo
+sudo unzip kitodo-3-config.zip -d /usr/local/kitodo
+sudo chown -R tomcat8:tomcat8 /usr/local/kitodo
+</code></pre>
+<h3 id="install-modules">Install modules</h3>
+<pre><code>sudo mkdir /usr/local/kitodo/modules
+sudo unzip kitodo-3-modules.zip -d /usr/local/kitodo/modules
+sudo chown -R tomcat8:tomcat8 /usr/local/kitodo/modules
+</code></pre>
+<h3 id="deploy-war-file-into-tomcat">Deploy war file into Tomcat</h3>
+<pre><code>sudo chown tomcat8:tomcat8 kitodo-3.war
+sudo mv kitodo-3.war /var/lib/tomcat8/webapps/kitodo.war
+until curl -s GET &quot;localhost:8080/kitodo/pages/login.jsf&quot; | grep -q -o &quot;KITODO.PRODUCTION&quot; ; do sleep 1; done
+</code></pre>
+<h3 id="login">Login</h3>
+<p><a href="http://localhost:8080/kitodo/">http://localhost:8080/kitodo/</a></p>
+<ul>
+<li>user: testAdmin</li>
+<li>pass: test</li>
+</ul>
+<h3 id="index-example-data">Index example data</h3>
+<p>Menu System: <a href="http://localhost:8080/kitodo/pages/system.jsf">http://localhost:8080/kitodo/pages/system.jsf</a></p>
+<ul>
+<li>Delete ElasticSearch index</li>
+<li>Create ElasticSearch mapping</li>
+<li>Whole Index / Start indexing</li>
+</ul>
+<h2 id="4-updates">4. Updates</h2>
+<h3 id="download-sources">Download sources</h3>
+<pre><code>rm -rf kitodo-production-master
+wget https://github.com/kitodo/kitodo-production/archive/master.zip
+unzip master.zip &amp;&amp; rm master.zip
+</code></pre>
+<h3 id="reset-database">Reset database</h3>
+<pre><code>sudo mysql -e &quot;drop database kitodo;&quot;
+sudo mysql -e &quot;create database kitodo;grant all privileges on kitodo.* to kitodo@localhost identified by 'kitodo';flush privileges;&quot;
+cat kitodo-production-master/Kitodo/setup/schema.sql | mysql -u kitodo -D kitodo --password=kitodo
+cat kitodo-production-master/Kitodo/setup/default.sql | mysql -u kitodo -D kitodo --password=kitodo
+(cd kitodo-production-master/Kitodo-DataManagement &amp;&amp; mvn flyway:baseline -Pflyway &amp;&amp; mvn flyway:migrate -Pflyway)
+</code></pre>
+<h3 id="rebuild-and-deploy-war-file">Rebuild and deploy war file</h3>
+<pre><code>(cd kitodo-production-master/ &amp;&amp; mvn clean package '-P!development')
+sudo rm -f /usr/local/kitodo/modules/*
+sudo cp kitodo-production-master/Kitodo/modules/*.jar /usr/local/kitodo/modules
+sudo chown -R tomcat8:tomcat8 /usr/local/kitodo/modules
+mv kitodo-production-master/Kitodo/target/kitodo-3*.war kitodo-3.war
+sudo chown tomcat8:tomcat8 kitodo-3.war
+sudo mv kitodo-3.war /var/lib/tomcat8/webapps/kitodo.war
+sleep 5
+until curl -s GET &quot;localhost:8080/kitodo/pages/login.jsf&quot; | grep -q -o &quot;KITODO.PRODUCTION&quot; ; do sleep 1; done
+</code></pre>
+<p>Note: If the update provides new example data, it has to be copied from kitodo-production-master/Kitodo/... to /usr/local/kitodo/... manually.</p>
+<h3 id="reset-index">Reset index</h3>
+<p>http://localhost:8080/kitodo/pages/system.jsf</p>
+<ul>
+<li>Delete ElasticSearch index</li>
+<li>Create ElasticSearch mapping</li>
+<li>Whole Index / Start indexing</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

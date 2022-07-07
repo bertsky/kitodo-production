@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>System architecture - Kitodo.Production</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Kitodo.Production</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Getting started</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../gettingstarted/" class="dropdown-item">Building</a>
+</li>
+            
+<li>
+    <a href="../gettingstarted/demo/" class="dropdown-item">Build integrated demo</a>
+</li>
+            
+<li>
+    <a href="../gettingstarted/development-version/" class="dropdown-item">Build development version</a>
+</li>
+            
+<li>
+    <a href="../gettingstarted/eclipse-windows/" class="dropdown-item">Eclipse on Windows</a>
+</li>
+            
+<li>
+    <a href="../gettingstarted/virtualbox/" class="dropdown-item">Create VirtualBox Appliance</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../guidelines/" class="dropdown-item">Guidelines</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">System architecture</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Workflow</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="workflow/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="workflow/Modeler/" class="dropdown-item">Modeler</a>
+</li>
+            
+<li>
+    <a href="workflow/Diagram_template_processing/" class="dropdown-item">Diagram template processing</a>
+</li>
+            
+<li>
+    <a href="workflow/Template_process_creation/" class="dropdown-item">Create process out of template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">API documentation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../api/" class="dropdown-item">Application Programming Interface (API)</a>
+</li>
+            
+<li>
+    <a href="../api/activemq_jms_api/" class="dropdown-item">Active MQ webservices</a>
+</li>
+            
+<li>
+    <a href="../api/jersey_jaxrs_api/" class="dropdown-item">Jersey WebAPI</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../tests/" class="dropdown-item">Tests</a>
+</li>
+                                    
+<li>
+    <a href="../javadoc/" class="dropdown-item">Javadoc</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">BestPractice</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../user/introduction/" class="dropdown-item">Das erste mal mit Kitodo arbeiten</a>
+</li>
+            
+<li>
+    <a href="../../user/introduction/application_notes/" class="dropdown-item">Anwendungshinweise und Weiteres</a>
+</li>
+            
+<li>
+    <a href="../../user/introduction/user_documentation/" class="dropdown-item">Dokumentationen der Anwenderbibliotheken</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../user/introduction/gettingstarteduser/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Using</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../user/introduction/using/" class="dropdown-item">Anwenderdokumentation</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../guidelines/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="workflow/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/kitodo/kitodo-production/edit/master/docs/developer/architecture/README.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#system-architecture" class="nav-link">System architecture</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#data-types" class="nav-link">Data types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#modification-of-data" class="nav-link">Modification of data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#filemanagement" class="nav-link">FileManagement</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="system-architecture">System architecture</h1>
+<p>This documentation is work in progress. Please consult the <a href="../javadoc/">javadoc</a> or <a href="https://maillist.slub-dresden.de/cgi-bin/mailman/listinfo/kitodo-developer">contact the developer team</a>.</p>
+<p>Below you will find some fragments regarding the system architecture of Kitodo.production.</p>
+<h2 id="data-types">Data types</h2>
+<h3 id="entity">Entity</h3>
+<p>This data type is used for communication with database.
+There are defined two abstract classes: BaseBean and BaseIndexedBean
+BaseBean is extended by entities which are stored only in database and by abstract
+BaseIndexedBean. All beans classes which are stored both in database and index
+extend BaseIndexedBean class.</p>
+<p><img alt='Bean.puml' src='http://www.plantuml.com/plantuml/png/jP7DYi8m4CVlUOevMefzWE9bnR0Kn1NiOQ-n6Kh0JIMPBaBntJSVhabHZ-QI-VZF_6OISRHaH4VGdOIri1OMroWqJAniD66F1fHaPO_Ko4LHtsAij26G94NzEpZXbJ7nsB7H4YyeKsFdVdIa1WqgsP6I_83BidQUVT4b3HBvModEdsOOpvvy8ADq3wJeXAogge1ilUTWCHauCPIhRssztjKjYY2BrXsrDqE7xduZ2FNu0_dc4mDtcjs6VmThmxUyvT7ysd5VS__JrNBvy1qru8LGIpkNfLUR2_9Ih_jVEQdouPu3Huj_' ></p>
+<h3 id="type">Type</h3>
+<p>This data type is used for communication with ElasticSearch index. All type classes extend
+BaseType class. Type classes produce JSON objects which are converted to HTTP entities 
+and in that form send to the ES server.</p>
+<p><img alt='Type.puml' src='http://www.plantuml.com/plantuml/png/nPBHIiCm58Rl-nJdiiFj1KOfEERGeKvSN-0qEPiPRL9oZh0ovhERfbRTP7S3Rm89___bFtzYh93Ve28eseOUXbrMv718Rkv5cZihHbfGdb1exjHxJLRI0ahaeDUq9pqZjAEWHdvxmYRhA5loO_YnvsT-JXyDItVB6OP7oJ59i6Jng0HKXSmm2vekNbO0xOMixez-sM9QE0o-8_nByeziSJdWShrwllKUMq2jL-MEbBnIXMASxP6B75myvZ6KpbN11I51HTS31z9QlB5Rs3XVeyp3O6ctW0vBhBvl_CKxHSnTwR7PotL-AV-M6bZ3kq4scPmWfyCqoSclYxflqnHCtLGKI_y4'></p>
+<h3 id="data-transfer-object">Data Transfer Object</h3>
+<p>This data type is used for communication with frontend. All DTO classes extend
+BaseDTO class. Only indexed objects have DTO classes (indexed - beans which extend
+BaseIndexedBean). Data used for them is extracted from JSON objects returned
+as search results from ES index. All attributes are set up in data service classes
+(e.g. ProcessService).</p>
+<h3 id="uml-diagram">UML Diagram</h3>
+<p><img alt='DTO.puml' src='http://www.plantuml.com/plantuml/png/JOx12i8m38RlUOeSLyhs0CMJUDb9mRr0RKCfZ0wQ88BuxdPjnTsIFr--n3vOidM2RhNCUBPCb-MARz1p4WgKCNhGWMJsWp8z0yqr-2FAFBS2VW2QvvOtHynTTPSSKq29iX9CqrI5ozuLPnjMPOkETFVkVDaRLCLQLMxzlZsDu_6YGNe99SzV'></p>
+<h2 id="modification-of-data">Modification of data</h2>
+<p>Scenario: New column to database was inserted.</p>
+<ol>
+<li>Add new attribute to Entity class (XxxxBean) with get/set methods.</li>
+<li>Write flyway migration.</li>
+<li>Add new JSON key in createDocument method of XxxxType class.</li>
+<li>Adjust test for this method.</li>
+<li>Update mapping for ElasticSearch index.</li>
+<li>Add new attribute to DTO class (XxxxDTO) with get/set methods.</li>
+<li>Add usage of the setter in method convertJSONObjectToDTO of XxxxService class.
+8 Update frontend page with usage of the new attribute.</li>
+<li>Run application and recreate index (drop mapping, create new mapping, reindex data).</li>
+</ol>
+<h2 id="filemanagement">FileManagement</h2>
+<p>FileManagementInterface is used for file management. It contains two methods:
+    <em>retrieve</em>
+        it takes a file path and returns the file to which this path has pointed.
+    <em>save</em>
+        it takes a file and saves it to the given path and it returns a boolean if saving was successful or not.</p>
+<p><img alt='filemanagementInterface.puml' src='http://www.plantuml.com/plantuml/png/dP31IiGm48RlUOgX9qKVG6HNzYHuMF1kFCmsqpQGJ4AIzQ3stKrJKbeA2avXQER__mzcJZ5XI5ThXD9zG3_0ipPaaR4dIvpWIq2kpd5Yj0H7QCwENVJOKhD8KNzEqeCe4tQAuAty_f7TvUim3kXB853hWfhTxpEULFz_VAMKDS_BcY-SA7JOhi46BsIEpNo0Ml8W3xgQvLF-UD5_mMuytz9itdSGA0LD7tJpYca0dzljOq7jd16pQrAWo-qUre6BSuQGLvcn7cuK9s9rjUO7'></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Create VirtualBox Appliance - Kitodo.Production</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Kitodo.Production</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Getting started</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../" class="dropdown-item">Building</a>
+</li>
+            
+<li>
+    <a href="../demo/" class="dropdown-item">Build integrated demo</a>
+</li>
+            
+<li>
+    <a href="../development-version/" class="dropdown-item">Build development version</a>
+</li>
+            
+<li>
+    <a href="../eclipse-windows/" class="dropdown-item">Eclipse on Windows</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Create VirtualBox Appliance</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../guidelines/" class="dropdown-item">Guidelines</a>
+</li>
+                                    
+<li>
+    <a href="../../architecture/" class="dropdown-item">System architecture</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Workflow</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../architecture/workflow/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Modeler/" class="dropdown-item">Modeler</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Diagram_template_processing/" class="dropdown-item">Diagram template processing</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Template_process_creation/" class="dropdown-item">Create process out of template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">API documentation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../api/" class="dropdown-item">Application Programming Interface (API)</a>
+</li>
+            
+<li>
+    <a href="../../api/activemq_jms_api/" class="dropdown-item">Active MQ webservices</a>
+</li>
+            
+<li>
+    <a href="../../api/jersey_jaxrs_api/" class="dropdown-item">Jersey WebAPI</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../tests/" class="dropdown-item">Tests</a>
+</li>
+                                    
+<li>
+    <a href="../../javadoc/" class="dropdown-item">Javadoc</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">BestPractice</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user/introduction/" class="dropdown-item">Das erste mal mit Kitodo arbeiten</a>
+</li>
+            
+<li>
+    <a href="../../../user/introduction/application_notes/" class="dropdown-item">Anwendungshinweise und Weiteres</a>
+</li>
+            
+<li>
+    <a href="../../../user/introduction/user_documentation/" class="dropdown-item">Dokumentationen der Anwenderbibliotheken</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../user/introduction/gettingstarteduser/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Using</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user/introduction/using/" class="dropdown-item">Anwenderdokumentation</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../eclipse-windows/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../guidelines/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/kitodo/kitodo-production/edit/master/docs/developer/gettingstarted/virtualbox.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#create-virtualbox-appliance-for-kitodo-3x" class="nav-link">Create VirtualBox appliance for Kitodo 3.x</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#download-debian-95-iso-file" class="nav-link">Download Debian 9.5 ISO file</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#create-virtual-machine" class="nav-link">Create Virtual Machine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#virtual-machine-settings" class="nav-link">Virtual Machine settings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#start-virtual-machine" class="nav-link">Start Virtual Machine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#debian-install-screen" class="nav-link">Debian install screen</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#install-virtualbox-guest-additions-shared-clipboard-and-reboot" class="nav-link">Install VirtualBox guest additions (shared clipboard) and reboot</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#install-kitodo" class="nav-link">Install Kitodo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#create-shortcuts" class="nav-link">Create shortcuts</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#save-password-in-firefox" class="nav-link">Save password in Firefox</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#export-appliance" class="nav-link">Export Appliance</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="create-virtualbox-appliance-for-kitodo-3x">Create VirtualBox appliance for Kitodo 3.x</h1>
+<h2 id="download-debian-95-iso-file">Download Debian 9.5 ISO file</h2>
+<p>Download <code>debian-9.5.0-amd64-netinst.iso</code> from <a href="https://cdimage.debian.org/debian-cd/9.5.0/amd64/iso-cd/">https://cdimage.debian.org/debian-cd/9.5.0/amd64/iso-cd/</a></p>
+<h2 id="create-virtual-machine">Create Virtual Machine</h2>
+<ul>
+<li>Name: <code>kitodo 3.0.0-beta.1</code></li>
+<li>Type: <code>Linux</code></li>
+<li>Version: <code>Debian (64-bit)</code></li>
+<li>Memory size: <code>4096 MB</code></li>
+<li>Hard disk: <code>VDI</code> / <code>dynamically allocated</code> / <code>20 GB</code></li>
+</ul>
+<h2 id="virtual-machine-settings">Virtual Machine settings</h2>
+<ul>
+<li>General/Advanced/Shared clipboard: <code>Bidirectional</code></li>
+<li>System/Processor/Processor(s): <code>2</code></li>
+<li>System/Processor/Extended Features: <code>Enable PAE/NX</code></li>
+<li>Display/Screen/Video Memory: <code>128 MB</code></li>
+<li>Network/Adapter 1/Advanced/Port Forwarding/+</li>
+<li>Host Port: <code>8080</code></li>
+<li>Guest Port: <code>8080</code></li>
+</ul>
+<h2 id="start-virtual-machine">Start Virtual Machine</h2>
+<p>Select downloaded file <code>debian-9.5.0-amd64-netinst.iso</code></p>
+<h2 id="debian-install-screen">Debian install screen</h2>
+<ul>
+<li>Select <code>Graphical install</code></li>
+<li>Language: <code>English</code></li>
+<li>Location: <code>United States</code></li>
+<li>Keyboard: <code>German</code></li>
+<li>Hostname: <code>kitodo</code></li>
+<li>Domain: <code></code> (blank)</li>
+<li>Root password: <code>kitodo</code></li>
+<li>Full name: <code>kitodo</code></li>
+<li>User name: <code>kitodo</code></li>
+<li>User password: <code>kitodo</code></li>
+<li>Time zone: <code>Eastern</code></li>
+<li>Partitioning method: <code>Guided - use entire disk</code></li>
+<li>Partitioning scheme: <code>All files in one partition</code></li>
+<li>Mirror: <code>Germany/ftp.de.debian.org</code></li>
+<li>Proxy: <code></code> (blank)</li>
+<li>Software: deselect <code>print server</code></li>
+</ul>
+<h2 id="install-virtualbox-guest-additions-shared-clipboard-and-reboot">Install VirtualBox guest additions (shared clipboard) and reboot</h2>
+<pre><code>su -c 'echo &quot;deb http://ftp.debian.org/debian stretch-backports main contrib&quot; &gt; /etc/apt/sources.list.d/stretch-backports.list &amp;&amp; apt update &amp;&amp; apt install -y virtualbox-guest-dkms virtualbox-guest-x11 linux-headers-$(uname -r) &amp;&amp; reboot'
+</code></pre>
+<h2 id="install-kitodo">Install Kitodo</h2>
+<p>Follow the installation instructions in <a href="https://github.com/kitodo/kitodo-production/wiki/Installationsanleitung-f%C3%BCr-Kitodo.Production-3.x">https://github.com/kitodo/kitodo-production/wiki/Installationsanleitung-f%C3%BCr-Kitodo.Production-3.x</a></p>
+<p>Make sure to install Java 11 when using Kitodo.Production v3.4 and above, see <a href="../development-version/#install-openjdk-11">instructions</a>.</p>
+<h2 id="create-shortcuts">Create shortcuts</h2>
+<ul>
+<li>Website link</li>
+</ul>
+<pre><code>echo '[Desktop Entry]
+Encoding=UTF-8
+Name=Kitodo.Production
+Type=Link
+URL=http://localhost:8080/kitodo/
+Icon=text-html' &gt;&gt; ~/Desktop/Kitodo.Production.desktop
+</code></pre>
+<ul>
+<li>Symlink to folders</li>
+</ul>
+<pre><code>ln -s /usr/local/kitodo ~/Desktop/kitodo-config
+ln -s /var/lib/tomcat8/webapps/ ~/Desktop/kitodo-app
+</code></pre>
+<h2 id="save-password-in-firefox">Save password in Firefox</h2>
+<ul>
+<li>Login at <a href="http://localhost:8080/kitodo/">http://localhost:8080/kitodo/</a> with user <code>testAdmin</code> and password `test</li>
+<li>Click <code>save</code> in popup dialog to let Firefox save this login</li>
+</ul>
+<h2 id="export-appliance">Export Appliance</h2>
+<p>VirtualBox Manager / File / Export Appliance</p>
+<ul>
+<li>File: <code>kitodo-production-3.0.0-beta.1.ova</code></li>
+<li>Product: <code>Kitodo Production</code></li>
+<li>Product-URL: <code>http://www.kitodo.org</code></li>
+<li>Version: <code>3.0.0-beta.1</code></li>
+<li>Description:</li>
+</ul>
+<pre><code>This VirtualBox appliance is intended for development and tests in local networks. Do not use it in production mode!
+
+The Kitodo.production webapp should be available from guest and host system (via NAT Port Forwarding) at:
+* http://localhost:8080/kitodo/
+* user: testAdmin
+* pass: test
+
+The appliance is based on debian 9.4, openjdk-8, tomcat8, mysql 5.7 and elasticsearch 5.x
+* system user: kitodo, root
+* system user password: kitodo
+* system root password: kitodo
+* mysql user: kitodo
+* mysql user password: kitodo
+* mysql root password: (blank)
+</code></pre>
+<ul>
+<li>License: <code>GPLv3 https://www.gnu.org/licenses/gpl-3.0.en.html</code></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

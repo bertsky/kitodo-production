@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Active MQ webservices - Kitodo.Production</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Kitodo.Production</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Getting started</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../gettingstarted/" class="dropdown-item">Building</a>
+</li>
+            
+<li>
+    <a href="../../gettingstarted/demo/" class="dropdown-item">Build integrated demo</a>
+</li>
+            
+<li>
+    <a href="../../gettingstarted/development-version/" class="dropdown-item">Build development version</a>
+</li>
+            
+<li>
+    <a href="../../gettingstarted/eclipse-windows/" class="dropdown-item">Eclipse on Windows</a>
+</li>
+            
+<li>
+    <a href="../../gettingstarted/virtualbox/" class="dropdown-item">Create VirtualBox Appliance</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../guidelines/" class="dropdown-item">Guidelines</a>
+</li>
+                                    
+<li>
+    <a href="../../architecture/" class="dropdown-item">System architecture</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Workflow</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../architecture/workflow/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Modeler/" class="dropdown-item">Modeler</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Diagram_template_processing/" class="dropdown-item">Diagram template processing</a>
+</li>
+            
+<li>
+    <a href="../../architecture/workflow/Template_process_creation/" class="dropdown-item">Create process out of template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">API documentation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../" class="dropdown-item">Application Programming Interface (API)</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Active MQ webservices</a>
+</li>
+            
+<li>
+    <a href="../jersey_jaxrs_api/" class="dropdown-item">Jersey WebAPI</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../tests/" class="dropdown-item">Tests</a>
+</li>
+                                    
+<li>
+    <a href="../../javadoc/" class="dropdown-item">Javadoc</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">BestPractice</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user/introduction/" class="dropdown-item">Das erste mal mit Kitodo arbeiten</a>
+</li>
+            
+<li>
+    <a href="../../../user/introduction/application_notes/" class="dropdown-item">Anwendungshinweise und Weiteres</a>
+</li>
+            
+<li>
+    <a href="../../../user/introduction/user_documentation/" class="dropdown-item">Dokumentationen der Anwenderbibliotheken</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../user/introduction/gettingstarteduser/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Using</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../user/introduction/using/" class="dropdown-item">Anwenderdokumentation</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../jersey_jaxrs_api/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/kitodo/kitodo-production/edit/master/docs/developer/api/activemq_jms_api.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#active-mq-web-services-for-kitodo" class="nav-link">Active MQ web services for Kitodo</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#jms" class="nav-link">JMS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#api-implementation" class="nav-link">API Implementation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#process-creation-service" class="nav-link">Process Creation Service</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#service-to-finalize-steps" class="nav-link">Service to finalize steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="active-mq-web-services-for-kitodo">Active MQ web services for Kitodo</h1>
+<h2 id="jms">JMS</h2>
+<p>Active Message Queue is an open source Java Messaging (JMS) implementation
+provided by the Apache Software Foundation. It is intended to be used to
+connect software components in a flexible way. The core is the Active MQ
+server which can be pictured like a post office. The mail boxes are named
+“queue” or “topic”. Queues work as expected: A producer sends a message where
+a consumer can pick it up. Topics can be pictured as black boards: The main
+difference is: A message read from a queue is removed from the queue. A message
+read from a topic is still available to others. Consumer clients can actively
+check the server or may register listeners with the server to be notified of
+new messages.</p>
+<h2 id="api-implementation">API Implementation</h2>
+<p>This behaviour has already been implemented to Kitodo: The org.goobi.mq.
+ActiveMQDirector is a ServletContextListener which is registered in web.xml.
+On application startup, it registers all consumers from its “services” variable
+to the server configured in “activeMQ.hostURL”.</p>
+<p>The elements of this variable are classes extending the abstract class
+ActiveMQProcessor. This class implements the MessageListener and provides
+facilities to handle exceptions and to store the consumer which is required on
+shutdown to disconnect.</p>
+<p>To implement another web service processor, you have to implement a class which
+extends ActiveMQProcessor and implements its abstract void process(MapMessage).
+Here is the right place to do whatever your processor is intended to do. There
+is a class MapMessageObjectReader which shall be used to type safe retrieve
+complex objects from MapMessages. You must add your new class to the “services”
+variable of ActiveMQDirector then.</p>
+<p>The Kitodo server administrator shall be in control which processors are being
+started, and which queue names they listen on. Implementation of this
+configurability is designed this way: The implementing class must pass its
+queue name to the constructor of the parent class. This is done by implementing
+the constructor like in the following skeleton. If the queue name is not
+configured, it will return null which will prevent the ActiveMQDirector from
+registering it to the server. Inside the class, the queue name is available in
+the global variable “queueName” which is set by the parent class.  The
+implementation may use arbitrary “activeMQ.myService.*” entries in
+goobi_config.properties for configuration.</p>
+<h3 id="service-processor-skeleton-sample">Service processor skeleton sample</h3>
+<pre><code>package org.goobi.mq.processores;
+
+import org.goobi.mq.*;
+import de.sub.goobi.config.ConfigCore;
+import de.sub.goobi.helper.enums.ReportLevel;
+
+public class MyServiceProcessor extends ActiveMQProcessor {
+
+    public MyServiceProcessor() {
+        super(ConfigMain.getParameter("activeMQ.myService.queue", null));
+    }
+
+    @Override
+    protected void process(MapMessageObjectReader args) throws Exception {
+        // TODO Auto-generated method stub
+    }
+}
+</code></pre>
+<h3 id="processor-response">Processor Response</h3>
+<p>Responses from processors are designed to be handled as WebServiceResult
+objects. Those objects are MapMessages which send themselves to a topic
+configured in “activeMQ.results.topic”. They consist of the Strings “queue”
+(the name of the queue the job ticket was sent to), “id” (a String “id” in
+the MapMessage which is mandatory), “level” and an optional “message”. When
+designing the MapMessage layout to parameterise your web service processor,
+please keep in mind that a String element “id” is mandatory.</p>
+<p>If process() terminates without error, it is meant to have done its job
+successfully and a WebServiceResult with level “success” will be sent. If
+process() returns an exception, a WebServiceResult with level “fatal” will be
+sent. The exception will be returned as the “message” String. You may also use
+the WebServiceResult class to send messages with the levels “error”, “warn”,
+“info”, “debug”, “verbose” and “ludicrous” which are meant to be informative
+only:
+        new WebServiceResult(queueName, args.getMandatoryString("id"),
+                ReportLevel.INFO, "Remote host is down, trying again later.")
+                .send();</p>
+<h2 id="process-creation-service">Process Creation Service</h2>
+<p>Kitodo.Production is equipped with a web service interface to automatically
+create new processes based on a given template. This allows the digitization
+process to be initiated from outside the application, for example by assigning
+a new digital ID to a record in a library catalogue (or—at choice of the
+library—by duplicating a record and assigning a new digital ID to the
+duplicate) and then running a script.</p>
+<p>The web service infrastructure is providet by an Active MQ server (see
+http://activemq.apache.org/ for details) which needs to be downloaded and
+started. Without further configuration, it provides everything necessary on
+port 61616 of the machine in question.</p>
+<p>The “activeMQ.hostURL” must be set in goobi_config.properties to point to this
+server. The “activeMQ.createNewProcess.queue” must be set to point to a queue
+of your choice where Kitodo.Production shall pick up orders to create new
+processes.</p>
+<p>Orders must be javax.jms.MapMessage objects with the following key-value-pairs
+provided:</p>
+<pre><code>String template
+    name of the process template to use
+String opac
+    Cataloge to use for lookup
+String field
+    Field to look into, usually 12 (PPN)
+String value
+    Value to look for, id of physical medium
+String id
+    Ticket ID (used in log responses)
+List&lt;String&gt; collections
+    Collections to be selected
+Map&lt;String, String&gt; userFields (optional)
+    May be used to populates AdditionalField entries
+</code></pre>
+<p>Here is a sample java client to do the job. It expects to be passed from the
+command line the Active MQ host (e.g. tcp://localhost:61616), the queue name
+and the parameters as listed above.</p>
+<p>To run this application, the following JARs from the ActiveMQ server’s /lib
+folder are required on the classpath:</p>
+<ul>
+<li>activemq-core</li>
+<li>geronimo-j2ee-management_1.1_spec</li>
+<li>genonimo-jms_1.1_spec</li>
+<li>log4j2</li>
+<li>slf4j-api</li>
+<li>slf4j-log4j12</li>
+</ul>
+<h3 id="mainjava">Main.java</h3>
+<pre><code>import java.util.*;
+import javax.jms.*;
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+public class Main {
+    public static int main(String[] args) { try {
+
+        // Check arguments
+        if (args.length &lt; 8 || (args.length % 2) != 0) {
+            System.out.println("Parameters: Active MQ host, queue name, "
+                    + "template name, opac name,");
+            System.out.println("            no. of search field, search "
+                    + "string, digital id, collection name,");
+            System.out.println("            [additional details field, "
+                    + "value, [add. details field, value, [...");
+            return 1;
+        }
+
+        // Connect to server
+        Connection connection = new ActiveMQConnectionFactory(args[0])
+                .createConnection();
+        connection.start();
+        Session session = connection.createSession(false,
+                Session.AUTO_ACKNOWLEDGE);
+        Destination destination = session.createQueue(args[1]);
+        MessageProducer producer = session.createProducer(destination);
+        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+
+        // Create job ticket
+        MapMessage message = session.createMapMessage();
+        message.setString("template", args[2]);
+        message.setString("opac", args[3]);
+        message.setString("field", args[4]);
+        message.setString("value", args[5]);
+        message.setString("id", args[6]);
+        List&lt;String&gt; collections = new ArrayList&lt;String&gt;();
+        collections.add(args[7]);
+        message.setObject("collections", collections);
+        Map&lt;String, String&gt; userFields = new HashMap&lt;String, String&gt;();
+        for (int i = 8; i &lt; args.length; i += 2)
+            userFields.put(args[i], args[i + 1]);
+        if (userFields.size() != 0)
+            message.setObject("userFields", userFields);
+
+        // Send job ticket
+        producer.send(message);
+
+        // Shutdown
+        session.close();
+        connection.close();
+    } catch (Exception e) { e.printStackTrace(); return 2; }
+    return 0;
+}   }
+</code></pre>
+<h2 id="service-to-finalize-steps">Service to finalize steps</h2>
+<p>Kitodo.Production is equipped with a web service interface to automatically
+finalize steps. This allows external software contributing to a workflow to
+report their success from outside the application. Additionally, properties
+can be populated and a message can be added to the processes’ log (in former
+versions of Kitodo known as “wiki field”).</p>
+<p>The web service infrastructure is provided by an Active MQ server (see
+http://activemq.apache.org/ for details) which needs to be downloaded and
+started. Without further configuration, it provides everything necessary on
+port 61616 of the machine in question.</p>
+<p>The “activeMQ.hostURL” must be set in goobi_config.properties to point to this
+server. The “activeMQ.finaliseStep.queue” must be set to point to a queue
+of your choice where Kitodo.Production shall pick up orders to finalize steps.</p>
+<p>Orders must be javax.jms.MapMessage objects with the following key-value-pairs
+provided:</p>
+<pre><code>String id
+    ID of the step to close (do not mix up with the process ID)
+Map&lt;String, String&gt; properties (optional)
+    May be used to populates properties
+String message
+    Message to be added to the processes’ log.
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
